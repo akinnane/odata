@@ -123,7 +123,8 @@ module OData
       request = ::Typhoeus::Request.new(
           URI.escape("#{service_url}/#{url_chunk}"),
           options[:typhoeus].merge({
-            method: :get
+                                     method: :get,
+                                     forbid_reuse: true
           }).merge(additional_options)
       )
       request.run
